@@ -20,7 +20,7 @@ jobs:
       - name: Set variables
         run: |
           TAG=${{ github.ref_name }}
-          echo "PUPPET_RELEASE=${TAG:1}" >> $GITHUB_ENV
+          echo "PUPPET_RELEASE=${TAG:0:1}" >> $GITHUB_ENV
           echo "PUPPETSERVER_VERSION=${TAG}" >> $GITHUB_ENV
       - name: Build Puppetserver ${PUPPETSERVER_VERSION} container
         uses: voxpupuli/gha-build-and-publish-a-container@v2
